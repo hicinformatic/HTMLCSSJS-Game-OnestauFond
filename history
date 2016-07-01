@@ -1,0 +1,51 @@
+/*#world { white-space: nowrap; }
+#world > div { 
+    font-size: 0;
+}
+#world > div > div {
+    height: 80px;
+    width: 80px;
+    font-size: 10px;
+    display: inline-block;
+}
+#world > div:nth-child(even) { background-color: rgba(0, 0, 0, 0.1); }
+#world > div>div:nth-child(even) { background-color: rgba(0, 0, 0, 0.1); }
+
+#player {
+    background-color: red;
+    border-radius: 50px;
+    height: 15px;
+    width: 15px;
+    position: fixed;
+    bottom: 50%;
+    right: 50%;
+}*/
+
+var size = 100;
+var startY = 10;
+var startX = 30;
+
+function axeX(startX, axeY, calc) {
+    var start = startX-calc;
+    var end = start+calc;
+    for (var i = start; i <= end ; i++) {
+        var lastDiv = document.createElement("DIV");
+        lastDiv.id = "X"+i;
+        lastDiv.innerHTML = axeY+ " : " +i;
+        document.getElementById("Y"+axeY).appendChild(lastDiv);
+    }
+}
+
+function axeY(startY, size) {
+    var calc = size/2;
+    var start = startY-calc;
+    var end = start+calc;
+    for (var i = start; i <= end ; i++) {
+        var lastDiv = document.createElement("DIV");
+        lastDiv.id = "Y"+i;
+        document.getElementById("world").appendChild(lastDiv);
+        axeX(startX, i, calc);
+    }
+}
+
+axeY(startY, size);

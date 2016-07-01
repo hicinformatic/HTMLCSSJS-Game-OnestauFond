@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+    <!-- meta, title & css -->
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="initial-scale=1.0, user-scalable=yes" />
+        <title>OEAF | Game</title>
+        <link rel="stylesheet" type="text/css" href="css/wr-easy.css">
+        <style>
+            canvas {
+                background-color: transparent;
+                position: fixed;
+                top: 0;
+                left: 0;
+            }
+            #player {
+                position: fixed;
+                top: 50%;
+                left: 50%;
+            }
+            #player > div {
+                vertical-align: middle;
+                background-color: red;
+                height: 2px;
+                width: 2px;
+            }
+        </style>
+    </head>
+    <body>
+        
+        <div id="world">
+            <!-- -->
+        </div>
+
+        <script>var DEBUG = true;</script>
+        <script type="text/javascript" src="js/screen.js"></script>
+        <script type="text/javascript" src="js/player.js"></script>
+        <script type="text/javascript" src="js/world.js"></script>
+        <script type="text/javascript" src="js/gameplay.js"></script>
+        <script>
+
+        Player = new player();
+        Player.load();
+        World = new world(Player);
+        World.load();
+        // World.layer("back", 39);
+        // World.layer("front", 42);
+
+        Player.wakeup();
+
+
+        // var timeOut = null;
+        // window.onresize = function(){
+        //     if (timeOut != null) { clearTimeout(timeOut); }
+        //     timeOut = setTimeout(function(){
+        //         Screen.get();
+        //         for (var w in worlds) {
+        //             for (var l in worlds[w].Layers) {
+        //                 worlds[w].Layers[l].get();
+        //             }
+        //         }
+        //     }, 500);
+        // };
+        </script>
+    </body>
+</html>
